@@ -3,16 +3,43 @@ import java.util.ArrayList;
 
 public class TaskService
 {
-    private ArrayList<Task> taskList = new ArrayList<>();
+    private ArrayList<Task> taskList;
+    public TaskService (TaskStorage storage)
+    {
+        this.taskList = storage.readFile();
+    }
 
     public boolean addTask(String description)
     {
-        LocalDateTime dateTime = LocalDateTime.now();
-//        Task task = new Task(id, description, "todo", dateTime.toString(), dateTime.toString());
-//        taskList.add(task);
-        return true;
+
+
+        return false;
     }
 
+    public boolean updateTask(String updatedDescription)
+    {
+        return false;
+    }
+
+    public boolean deleteTask(int id)
+    {
+        return false;
+    }
+
+    public void listTasks()
+    {
+
+    }
+
+    public void listStatusTasks(String status)
+    {
+
+    }
+
+    public boolean changeStatus(int id)
+    {
+        return false;
+    }
 
 
 

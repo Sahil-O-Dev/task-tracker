@@ -7,7 +7,6 @@ public class Main
             System.out.println("Please enter in correct input");
             return;
         }
-        TaskService taskService = new TaskService();
 
         String firstString = args[0];
         switch (firstString)
