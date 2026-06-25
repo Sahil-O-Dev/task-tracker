@@ -22,7 +22,6 @@ javac *.java
 ```bash
 java Main <command> <args>
 ```
-s
 ### Commands
 
 - `java Main add "Buy groceries"` - Add a new task
