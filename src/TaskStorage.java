@@ -3,7 +3,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.List;
 
 public class TaskStorage
 {
@@ -26,6 +25,17 @@ public class TaskStorage
     {
         ArrayList<Task> tasks = new ArrayList<>();
         Path path = Paths.get("tasks.json");
+
+        if(!Files.exists(path))
+        {
+            try
+            {
+                Files.createFile(path);
+            }catch (Exception e)
+            {
+                System.out.println("Failed to create a file: " + e.getMessage());
+            }
+        }
         String str = "";
         try
         {
@@ -34,6 +44,11 @@ public class TaskStorage
         } catch (IOException e) {
             System.out.println("Failed to read file: " + e.getMessage());
         }
+        if(str.isEmpty() || str.equals("[]"))
+        {
+            return tasks;
+        }
+
         String[] strArray = str.split("},\\{");
 
         for(int i = 0; i < strArray.length; i++)
